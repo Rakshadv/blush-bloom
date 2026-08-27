@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAISON ÉTHÉRÉE — Haute Coiffure & Botanical Skin Sanctuary</title>
+    
+    <!-- Google Fonts: Editorial Serif + Warm Minimal Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FDFBF7',
+                            100: '#F8F4EC',
+                            200: '#F2E9DE',
+                            300: '#EBDCCE',
+                        },
+                        petal: {
+                            100: '#FCECE8',
+                            200: '#F7D6CF',
+                            300: '#EEB5A9',
+                            400: '#E18F7F',
+                            500: '#CF6B58',
+                        },
+                        sand: {
+                            100: '#F2ECE4',
+                            200: '#E5D9CB',
+                            300: '#D5C3AE',
+                            400: '#B89F84',
+                            700: '#634E39',
+                        },
+                        darkcharcoal: '#1F1B1A',
+                        softtaupe: '#483C3A'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5D9CB;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E18F7F;
+        }
+
+        /* Ambient Petal & Heart Blossom Canvas */
+        #blossom-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: rgba(253, 251, 247, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(238, 181, 169, 0.32);
+        }
+
+        .editorial-image-hover {
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+        }
+        .editorial-image-hover:hover {
+            transform: scale(1.04);
+        }
+
+        @keyframes softGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(225, 143, 127, 0.22); }
+            50% { box-shadow: 0 0 32px rgba(225, 143, 127, 0.52); }
+        }
+        .glow-button {
+            animation: softGlow 3.6s infinite ease-in-out;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-softtaupe font-sans antialiased overflow-x-hidden selection:bg-petal-200 selection:text-darkcharcoal">
+
+    <!-- Falling Blossom & Blurred Hearts Canvas -->
+    <canvas id="blossom-canvas"></canvas>
+
+    <!-- ==============================================
+         TOP ANNOUNCEMENT BAR
+    =============================================== -->
+    <div class="relative z-20 bg-petal-100/90 border-b border-petal-200/60 py-2.5 px-4 text-center text-xs tracking-wider uppercase text-sand-700 font-medium">
+        <span>🌸 Welcome Gift: Complimentary botanical scalp steam & organic hair oil soak on your first visit • <a href="#offers" class="underline font-bold text-petal-500 hover:text-darkcharcoal transition">Claim Pass</a></span>
+    </div>
+
+    <!-- ==============================================
+         NAVBAR (STICKY TOP)
+    =============================================== -->
+    <header class="sticky top-0 z-40 glass-card transition-all duration-300 border-b border-sand-200/50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+            <!-- Brand Logo -->
+            <a href="#home" class="group flex flex-col">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-darkcharcoal font-medium">ÉTHÉRÉE</span>
+                <span class="text-[9px] tracking-[0.32em] uppercase text-sand-400 font-sans group-hover:text-petal-500 transition">Sanctuary of Beauty</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#home" class="hover:text-petal-500 transition py-1">Home</a>
+                <a href="#about" class="hover:text-petal-500 transition py-1">Our Soul</a>
+                <a href="#services" class="hover:text-petal-500 transition py-1">Rituals</a>
+                <a href="#stylists" class="hover:text-petal-500 transition py-1">Artists</a>
+                <a href="#offers" class="hover:text-petal-500 transition py-1">Moments</a>
+                <a href="#reviews" class="hover:text-petal-500 transition py-1">Love Notes</a>
+                <a href="#contact" class="hover:text-petal-500 transition py-1">Sanctuary</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-3.5">
+                <button onclick="toggleAiModal()" class="flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-full bg-sand-100 text-darkcharcoal hover:bg-petal-200 transition border border-sand-200">
+                    <i class="fa-solid fa-sparkles text-petal-500"></i>
+                    <span class="hidden sm:inline">AI Beauty Match</span>
+                </button>
+                <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-full bg-petal-400 hover:bg-petal-500 text-cream-50 text-xs font-semibold uppercase tracking-wider transition duration-300 shadow-md shadow-petal-300/30">
+                    Reserve Visit
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-xl text-darkcharcoal focus:outline-none ml-2">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-t border-sand-200 px-6 py-6 space-y-4 text-center">
+            <a href="#home" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Home</a>
+            <a href="#about" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Our Soul</a>
+            <a href="#services" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Rituals</a>
+            <a href="#stylists" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Artists</a>
+            <a href="#offers" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Moments</a>
+            <a href="#reviews" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Love Notes</a>
+            <a href="#contact" onclick="closeMobileMenu()" class="block py-2 text-base font-medium">Sanctuary</a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- ==============================================
+             HERO SECTION: HUMAN, WARM & EDITORIAL
+        =============================================== -->
+        <section id="home" class="min-h-[92vh] flex items-center justify-center pt-8 pb-20 px-6 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-petal-100/80 border border-petal-200 text-xs font-medium text-petal-500 uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-petal-400 animate-ping"></span>
+                        Slow Living • Conscious Beauty Rituals
+                    </div>
+
+                    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-darkcharcoal leading-[1.05] tracking-tight font-normal">
+                        You don’t need <br>to change. <br>
+                        <span class="italic font-light text-petal-500">You just need time to bloom.</span>
+                    </h1>
+
+                    <p class="text-base md:text-lg text-softtaupe/80 max-w-xl font-light leading-relaxed">
+                        Step out of the rushing world. Here, your appointment is an uninterrupted ritual of warm botanicals, mindful listening, and bespoke hair & skin artistry designed around who you truly are.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-3 justify-center lg:justify-start">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-darkcharcoal text-cream-50 text-xs font-semibold tracking-wider uppercase hover:bg-petal-500 transition duration-300 glow-button">
+                            Reserve Your Quiet Hour
+                        </button>
+                        <button onclick="toggleAiModal()" class="w-full sm:w-auto px-8 py-4 rounded-full border border-sand-300 hover:border-petal-400 bg-cream-100/70 text-darkcharcoal text-xs font-medium tracking-wider transition duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-petal-400"></i> AI Consultation Match
+                        </button>
+                    </div>
+
+                    <!-- Client Trust Counters -->
+                    <div class="pt-8 border-t border-sand-200/70 grid grid-cols-3 gap-6 text-center lg:text-left">
+                        <div>
+                            <p class="font-serif text-3xl text-darkcharcoal font-medium">99.4%</p>
+                            <p class="text-xs text-sand-400 uppercase tracking-widest mt-1">Client Revisit Rate</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-3xl text-darkcharcoal font-medium">100%</p>
+                            <p class="text-xs text-sand-400 uppercase tracking-widest mt-1">Botanical Elixirs</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-3xl text-darkcharcoal font-medium">12+</p>
+                            <p class="text-xs text-sand-400 uppercase tracking-widest mt-1">Master Couturiers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial Visual Collage (NEW FRESH PHOTO) -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/70">
+                        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=85" 
+                             alt="Luxury Hair Aesthetic Portrait" 
+                             class="w-full h-full object-cover editorial-image-hover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkcharcoal/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl glass-card text-left">
+                            <p class="font-serif text-lg italic text-darkcharcoal">"I entered exhausted and walked out feeling like the purest version of myself."</p>
+                            <p class="text-xs font-medium text-sand-400 uppercase tracking-wider mt-2">— Maya S., Regular Sanctuary Patron</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating aesthetic mini badge -->
+                    <div class="absolute -top-4 -left-4 p-4 rounded-2xl glass-card border border-petal-200 shadow-xl hidden sm:flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-petal-200 flex items-center justify-center text-petal-500">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-darkcharcoal">Herbal Steam Lounge</p>
+                            <p class="text-[10px] text-sand-400">Pure damask rose & neroli infusions</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             ABOUT SECTION: REAL HUMAN STORY (NEW PHOTOS)
+        =============================================== -->
+        <section id="about" class="py-24 px-6 bg-cream-100/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Botanical Facial Treatment" class="w-full h-full object-cover editorial-image-hover">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-[1/1] bg-petal-200 p-6 flex flex-col justify-end">
+                                <span class="font-serif text-3xl text-darkcharcoal font-medium">Conscious Botanicals</span>
+                                <span class="text-xs text-softtaupe mt-2">Zero harsh ammonias. Hand-blended organic floral broths & cold-pressed oils.</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-[1/1]">
+                                <img src="https://images.unsplash.com/photo-1608248597359-00f73752e557?auto=format&fit=crop&w=800&q=80" alt="Herbal essential oils and botanicals" class="w-full h-full object-cover editorial-image-hover">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Hair styling in action" class="w-full h-full object-cover editorial-image-hover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-block text-xs font-semibold tracking-widest uppercase text-petal-500">Our Soul & Heritage</div>
+                        <h2 class="font-serif text-4xl lg:text-6xl text-darkcharcoal font-normal leading-tight">
+                            We built this space so beauty visits feel like healing, not a chore.
+                        </h2>
+                        <p class="text-softtaupe font-light leading-relaxed">
+                            Maison Éthérée started with a simple belief: you shouldn't have to shout over loud music or breathe chemical fumes just to get your hair cut. We wanted a sun-drenched sanctuary smelling of warm rosewood, fresh lavender tea, and quiet acoustic music.
+                        </p>
+                        <p class="text-softtaupe font-light leading-relaxed">
+                            Every chair in our sanctuary is private and spacious. Before we touch a strand of your hair or apply an elixir to your skin, we sit with you over a freshly brewed floral tonic to listen to your morning routine, texture history, and how you want to feel.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-6 pt-4">
+                            <div class="border-l-2 border-petal-300 pl-4">
+                                <h4 class="font-serif text-xl text-darkcharcoal">Mindful Diagnostics</h4>
+                                <p class="text-xs text-softtaupe/80 mt-1">15 minutes of quiet analysis before every single treatment.</p>
+                            </div>
+                            <div class="border-l-2 border-sand-300 pl-4">
+                                <h4 class="font-serif text-xl text-darkcharcoal">Restful Ambience</h4>
+                                <p class="text-xs text-softtaupe/80 mt-1">Warm organic towels, silent hair dryers, and heated styling chairs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             SERVICES & RITUAL MENU
+        =============================================== -->
+        <section id="services" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-petal-500">Curated Menu</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-darkcharcoal">Slow Rituals For Hair & Skin</h2>
+                    <p class="text-softtaupe/80 font-light text-sm">Every ritual includes our signature botanical scalp massage and artisanal rosewood tea.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service 1 -->
+                    <div class="p-8 rounded-3xl glass-card hover:border-petal-300 transition duration-500 group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="p-3 bg-petal-100 rounded-2xl text-petal-500 text-lg"><i class="fa-solid fa-wand-magic"></i></span>
+                                <span class="font-serif text-2xl text-darkcharcoal font-medium">₹3,400</span>
+                            </div>
+                            <h3 class="font-serif text-2xl text-darkcharcoal group-hover:text-petal-500 transition">Sunlit Balayage & Gloss</h3>
+                            <p class="text-xs uppercase tracking-wider text-sand-400 mt-1">150 Mins • Seamless Grow-Out</p>
+                            <p class="text-sm text-softtaupe font-light mt-4 leading-relaxed">
+                                Hand-painted ribbons of light designed to grow out seamlessly without harsh root lines. Sealed with custom amino acid shine gloss.
+                            </p>
+                        </div>
+                        <button onclick="selectServiceToBook('Sunlit Balayage & Gloss')" class="mt-6 w-full py-3 rounded-xl bg-sand-100 hover:bg-petal-200 text-darkcharcoal text-xs font-semibold tracking-wider uppercase transition">
+                            Select This Ritual
+                        </button>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-8 rounded-3xl glass-card hover:border-petal-300 transition duration-500 group flex flex-col justify-between border-petal-200">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="p-3 bg-petal-200 rounded-2xl text-petal-500 text-lg"><i class="fa-solid fa-droplet"></i></span>
+                                <span class="font-serif text-2xl text-darkcharcoal font-medium">₹4,200</span>
+                            </div>
+                            <h3 class="font-serif text-2xl text-darkcharcoal group-hover:text-petal-500 transition">Rose Quartz Lymphatic Facial</h3>
+                            <p class="text-xs uppercase tracking-wider text-sand-400 mt-1">90 Mins • Deep Cryo Sculpt</p>
+                            <p class="text-sm text-softtaupe font-light mt-4 leading-relaxed">
+                                Cryo-sculpting rollers, chilled damask rose hydrosols, and ultrasonic moisture infusion for deep, glass-skin dewiness.
+                            </p>
+                        </div>
+                        <button onclick="selectServiceToBook('Rose Quartz Lymphatic Facial')" class="mt-6 w-full py-3 rounded-xl bg-petal-400 hover:bg-petal-500 text-cream-50 text-xs font-semibold tracking-wider uppercase transition">
+                            Select This Ritual
+                        </button>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-8 rounded-3xl glass-card hover:border-petal-300 transition duration-500 group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="p-3 bg-petal-100 rounded-2xl text-petal-500 text-lg"><i class="fa-solid fa-scissors"></i></span>
+                                <span class="font-serif text-2xl text-darkcharcoal font-medium">₹2,100</span>
+                            </div>
+                            <h3 class="font-serif text-2xl text-darkcharcoal group-hover:text-petal-500 transition">The Sculpted Botanical Cut</h3>
+                            <p class="text-xs uppercase tracking-wider text-sand-400 mt-1">60 Mins • Tailored Texture</p>
+                            <p class="text-sm text-softtaupe font-light mt-4 leading-relaxed">
+                                Sculpted around your natural wave, crown fall, and daily routine. Includes custom herbal wash and blowout styling lesson.
+                            </p>
+                        </div>
+                        <button onclick="selectServiceToBook('The Sculpted Botanical Cut')" class="mt-6 w-full py-3 rounded-xl bg-sand-100 hover:bg-petal-200 text-darkcharcoal text-xs font-semibold tracking-wider uppercase transition">
+                            Select This Ritual
+                        </button>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="p-8 rounded-3xl glass-card hover:border-petal-300 transition duration-500 group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="p-3 bg-petal-100 rounded-2xl text-petal-500 text-lg"><i class="fa-solid fa-feather"></i></span>
+                                <span class="font-serif text-2xl text-darkcharcoal font-medium">₹5,800</span>
+                            </div>
+                            <h3 class="font-serif text-2xl text-darkcharcoal group-hover:text-petal-500 transition">Silk Thread Keratin Therapy</h3>
+                            <p class="text-xs uppercase tracking-wider text-sand-400 mt-1">120 Mins • Non-Toxic Formula</p>
+                            <p class="text-sm text-softtaupe font-light mt-4 leading-relaxed">
+                                Non-toxic silk protein elixir that eliminates unruly humidity frizz while retaining natural movement and bouncy body.
+                            </p>
+                        </div>
+                        <button onclick="selectServiceToBook('Silk Thread Keratin Therapy')" class="mt-6 w-full py-3 rounded-xl bg-sand-100 hover:bg-petal-200 text-darkcharcoal text-xs font-semibold tracking-wider uppercase transition">
+                            Select This Ritual
+                        </button>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="p-8 rounded-3xl glass-card hover:border-petal-300 transition duration-500 group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="p-3 bg-petal-100 rounded-2xl text-petal-500 text-lg"><i class="fa-solid fa-crown"></i></span>
+                                <span class="font-serif text-2xl text-darkcharcoal font-medium">₹18,500+</span>
+                            </div>
+                            <h3 class="font-serif text-2xl text-darkcharcoal group-hover:text-petal-500 transition">Bridal Alchemy Suite</h3>
+                            <p class="text-xs uppercase tracking-wider text-sand-400 mt-1">Half-Day Private Sanctuary</p>
+                            <p class="text-sm text-softtaupe font-light mt-4 leading-relaxed">
+                                Private suite, artisanal champagne, complete bridal hair architecture, radiant HD skin prep, and calming steam ritual.
+                            </p>
+                        </div>
+                        <button onclick="selectServiceToBook('Bridal Alchemy Suite')" class="mt-6 w-full py-3 rounded-xl bg-sand-100 hover:bg-petal-200 text-darkcharcoal text-xs font-semibold tracking-wider uppercase transition">
+                            Select This Ritual
+                        </button>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="p-8 rounded-3xl glass-card hover:border-petal-300 transition duration-500 group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="p-3 bg-petal-100 rounded-2xl text-petal-500 text-lg"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                                <span class="font-serif text-2xl text-darkcharcoal font-medium">₹1,900</span>
+                            </div>
+                            <h3 class="font-serif text-2xl text-darkcharcoal group-hover:text-petal-500 transition">Damask Rose Pedicure</h3>
+                            <p class="text-xs uppercase tracking-wider text-sand-400 mt-1">60 Mins • Fresh Flower Soak</p>
+                            <p class="text-sm text-softtaupe font-light mt-4 leading-relaxed">
+                                Pink Himalayan mineral salt soak with floating rose petals, warm shea butter acupressure, and breathable vegan polish.
+                            </p>
+                        </div>
+                        <button onclick="selectServiceToBook('Damask Rose Pedicure')" class="mt-6 w-full py-3 rounded-xl bg-sand-100 hover:bg-petal-200 text-darkcharcoal text-xs font-semibold tracking-wider uppercase transition">
+                            Select This Ritual
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             STYLISTS SECTION: ARTISTS (NEW EDITORIAL PORTRAITS)
+        =============================================== -->
+        <section id="stylists" class="py-24 px-6 bg-cream-100/60">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-petal-500">The Artisans</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-darkcharcoal">Meet Our Master Couturiers</h2>
+                    <p class="text-softtaupe/80 font-light text-sm">Artists who see your natural features as poetry, not templates to follow blindly.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Stylist 1 (NEW PHOTO) -->
+                    <div class="group rounded-3xl overflow-hidden glass-card p-4 transition duration-500 hover:shadow-2xl">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" alt="Ananya Kashyap - Colorist" class="w-full h-full object-cover editorial-image-hover">
+                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-cream-50/90 text-[10px] font-semibold tracking-widest uppercase text-darkcharcoal">
+                                Creative Director
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-serif text-2xl text-darkcharcoal">Ananya Kashyap</h3>
+                            <p class="text-xs font-medium text-petal-500 uppercase tracking-widest mt-1">Color Architect & French Balayage</p>
+                            <p class="text-xs text-softtaupe font-light mt-3 leading-relaxed">
+                                "Hair should catch the evening sunlight naturally. I spend 11 years mastering dimensional, soft French placement."
+                            </p>
+                            <div class="mt-4 pt-3 border-t border-sand-200/60 flex justify-center gap-4 text-sand-400">
+                                <span class="text-[11px]"><i class="fa-solid fa-clock mr-1 text-petal-400"></i> 11 yrs Exp</span>
+                                <span class="text-[11px]"><i class="fa-solid fa-heart mr-1 text-petal-400"></i> 2.4k Clients</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stylist 2 (NEW PHOTO) -->
+                    <div class="group rounded-3xl overflow-hidden glass-card p-4 transition duration-500 hover:shadow-2xl">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Devananda Rao - Precision Master" class="w-full h-full object-cover editorial-image-hover">
+                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-cream-50/90 text-[10px] font-semibold tracking-widest uppercase text-darkcharcoal">
+                                Precision Master
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-serif text-2xl text-darkcharcoal">Devananda Rao</h3>
+                            <p class="text-xs font-medium text-petal-500 uppercase tracking-widest mt-1">Sculptural Cuts & Texture Architecture</p>
+                            <p class="text-xs text-softtaupe font-light mt-3 leading-relaxed">
+                                "A haircut is truly successful only when you can wake up, air-dry it with your hands, and feel effortlessly confident."
+                            </p>
+                            <div class="mt-4 pt-3 border-t border-sand-200/60 flex justify-center gap-4 text-sand-400">
+                                <span class="text-[11px]"><i class="fa-solid fa-clock mr-1 text-petal-400"></i> 9 yrs Exp</span>
+                                <span class="text-[11px]"><i class="fa-solid fa-heart mr-1 text-petal-400"></i> 1.9k Clients</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stylist 3 (NEW PHOTO) -->
+                    <div class="group rounded-3xl overflow-hidden glass-card p-4 transition duration-500 hover:shadow-2xl">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80" alt="Zara Al-Mansoor - Skin Couturier" class="w-full h-full object-cover editorial-image-hover">
+                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-cream-50/90 text-[10px] font-semibold tracking-widest uppercase text-darkcharcoal">
+                                Dermal Couturier
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="font-serif text-2xl text-darkcharcoal">Zara Al-Mansoor</h3>
+                            <p class="text-xs font-medium text-petal-500 uppercase tracking-widest mt-1">Botanical Dermatology & Lymphatic Rhythms</p>
+                            <p class="text-xs text-softtaupe font-light mt-3 leading-relaxed">
+                                "Healthy skin requires patience and barrier nourishment, not aggressive peels. We restore skin to its calm rhythm."
+                            </p>
+                            <div class="mt-4 pt-3 border-t border-sand-200/60 flex justify-center gap-4 text-sand-400">
+                                <span class="text-[11px]"><i class="fa-solid fa-clock mr-1 text-petal-400"></i> 8 yrs Exp</span>
+                                <span class="text-[11px]"><i class="fa-solid fa-heart mr-1 text-petal-400"></i> 3.1k Clients</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             SPECIAL OFFERS & SEASONAL ESCAPES
+        =============================================== -->
+        <section id="offers" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="relative rounded-3xl overflow-hidden bg-petal-500 text-cream-50 p-8 md:p-16">
+                    <div class="absolute -right-16 -bottom-16 w-96 h-96 rounded-full bg-petal-400/50 blur-3xl"></div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-8 space-y-4">
+                            <span class="px-3.5 py-1 rounded-full bg-cream-50/20 text-cream-50 text-xs uppercase tracking-widest font-semibold inline-block">
+                                Seasonal Sanctuary Pass • Autumn Blossom
+                            </span>
+                            <h2 class="font-serif text-3xl md:text-5xl leading-tight">
+                                Reserve Any Hair Ritual & Receive a 45-Min Glow Hydra-Facial at 50% Courtesy.
+                            </h2>
+                            <p class="text-cream-100/90 text-sm max-w-xl font-light">
+                                Valid for this month only. Complete with artisanal hibiscus steam tea and complimentary organic take-home elixir.
+                            </p>
+                        </div>
+                        <div class="lg:col-span-4 text-center lg:text-right">
+                            <button onclick="openBookingModal('Autumn Blossom Pass')" class="px-8 py-4 rounded-full bg-cream-50 text-darkcharcoal text-xs font-bold uppercase tracking-wider hover:bg-darkcharcoal hover:text-cream-50 transition duration-300 shadow-xl">
+                                Claim Seasonal Pass
+                            </button>
+                            <p class="text-[11px] text-cream-100/70 mt-2">Only a few reserved slots left for this week</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             REVIEWS SECTION & WRITE A REVIEW FORM
+        =============================================== -->
+        <section id="reviews" class="py-24 px-6 bg-cream-100/40">
+            <div class="max-w-7xl mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-petal-500">Real Human Experiences</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-darkcharcoal">Love Notes Left On Our Counter</h2>
+                    <p class="text-softtaupe/80 font-light text-sm">Every word here is from an actual client who walked out with renewed lightness.</p>
+                </div>
+
+                <!-- Reviews Grid -->
+                <div id="reviews-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    
+                    <div class="p-8 rounded-3xl glass-card flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-petal-400 text-xs gap-1 mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm font-serif italic text-darkcharcoal leading-relaxed">
+                                "I have curly texture and had several bad salon experiences before. Devananda took his time studying how my natural curl falls before cutting. I have never loved my natural hair more."
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sand-200/50 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-petal-200 font-serif font-bold text-petal-500 flex items-center justify-center">PS</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-darkcharcoal">Pooja Sundaram</h4>
+                                <p class="text-[10px] text-sand-400">Sculpted Haircut & Spa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl glass-card flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-petal-400 text-xs gap-1 mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm font-serif italic text-darkcharcoal leading-relaxed">
+                                "The Rose Quartz Facial is sheer bliss. The gentle rosewood scent and chilled jade stones made my skin stay plump and glassy for almost 3 weeks."
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sand-200/50 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-sand-200 font-serif font-bold text-sand-700 flex items-center justify-center">NM</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-darkcharcoal">Natasha Menon</h4>
+                                <p class="text-[10px] text-sand-400">Rose Quartz Facial Ritual</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl glass-card flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-petal-400 text-xs gap-1 mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm font-serif italic text-darkcharcoal leading-relaxed">
+                                "The sunlit balayage Ananya designed blends so smoothly. No orange brass, just rich butterscotch undertones. The entire vibe is so calming."
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sand-200/50 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-petal-200 font-serif font-bold text-petal-500 flex items-center justify-center">RK</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-darkcharcoal">Rhea Kapoor</h4>
+                                <p class="text-[10px] text-sand-400">Sunlit Balayage</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Write Review Form -->
+                <div class="max-w-2xl mx-auto p-8 md:p-10 rounded-3xl glass-card border border-petal-200/80">
+                    <h3 class="font-serif text-2xl text-darkcharcoal text-center mb-2">Leave a Love Note</h3>
+                    <p class="text-xs text-softtaupe text-center mb-6 font-light">Visited us recently? We’d cherish your honest feedback.</p>
+
+                    <form id="review-form" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[11px] font-semibold uppercase text-sand-700 tracking-wider">Your Name</label>
+                                <input type="text" id="reviewer-name" required placeholder="e.g. Shalini Nair" class="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-sand-200 bg-white/70 text-sm focus:outline-none focus:border-petal-400">
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-semibold uppercase text-sand-700 tracking-wider">Ritual Experienced</label>
+                                <input type="text" id="reviewer-service" required placeholder="e.g. Balayage & Cut" class="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-sand-200 bg-white/70 text-sm focus:outline-none focus:border-petal-400">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-[11px] font-semibold uppercase text-sand-700 tracking-wider">Your Rating</label>
+                            <div class="flex gap-2 text-xl text-petal-400 mt-1 cursor-pointer" id="rating-stars">
+                                <i class="fa-solid fa-star" onclick="setRating(1)"></i>
+                                <i class="fa-solid fa-star" onclick="setRating(2)"></i>
+                                <i class="fa-solid fa-star" onclick="setRating(3)"></i>
+                                <i class="fa-solid fa-star" onclick="setRating(4)"></i>
+                                <i class="fa-solid fa-star" onclick="setRating(5)"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-[11px] font-semibold uppercase text-sand-700 tracking-wider">Your Experience</label>
+                            <textarea id="reviewer-comment" rows="3" required placeholder="Tell us how you felt during and after your visit..." class="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-sand-200 bg-white/70 text-sm focus:outline-none focus:border-petal-400"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-petal-400 hover:bg-petal-500 text-cream-50 text-xs font-bold uppercase tracking-wider transition">
+                            Submit My Love Note
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             CONTACT & LOCATION SECTION (NEW AMBIENCE PHOTO)
+        =============================================== -->
+        <section id="contact" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-xs font-semibold tracking-widest uppercase text-petal-500">Come Unwind</span>
+                        <h2 class="font-serif text-4xl lg:text-5xl text-darkcharcoal">Visit The Sanctuary</h2>
+                        <p class="text-softtaupe font-light leading-relaxed text-sm">
+                            We are located on a peaceful leafy lane with valet assistance, quiet ambient lighting, and bespoke styling suites.
+                        </p>
+
+                        <div class="space-y-4 text-sm text-softtaupe">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-petal-100 text-petal-500 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-darkcharcoal">Sanctuary Address</p>
+                                    <p class="text-xs text-softtaupe/80">No. 42, Lotus Boulevard, Lavelle Grove, Indiranagar, Bangalore - 560038</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-petal-100 text-petal-500 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-darkcharcoal">Sanctuary Hours</p>
+                                    <p class="text-xs text-softtaupe/80">Tuesday — Sunday : 9:30 AM – 8:30 PM (Mondays Closed for rest & herbal infusion brewing)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-petal-100 text-petal-500 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-darkcharcoal">Concierge Desk</p>
+                                    <p class="text-xs text-softtaupe/80">+91 (080) 4920-8811 / concierge@ethereebeauty.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex gap-4">
+                            <button onclick="openBookingModal()" class="px-6 py-3 rounded-full bg-darkcharcoal hover:bg-petal-500 text-cream-50 text-xs font-semibold uppercase tracking-wider transition">
+                                Reserve Online
+                            </button>
+                            <a href="https://maps.google.com" target="_blank" class="px-6 py-3 rounded-full border border-sand-300 hover:border-petal-400 text-darkcharcoal text-xs font-medium uppercase tracking-wider transition">
+                                Map Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Fresh Salon Ambience Image -->
+                    <div class="lg:col-span-7">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl aspect-[16/10] border-4 border-white/80">
+                            <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1200&q=80" alt="Serene salon interior aesthetics" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==============================================
+         FOOTER (WITH BOTTOM NAVBAR)
+    =============================================== -->
+    <footer class="bg-darkcharcoal text-cream-50 pt-16 pb-12 px-6 border-t border-sand-700/50 relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-sand-700/40 text-sm">
+            
+            <div class="space-y-4">
+                <span class="font-serif text-3xl tracking-widest text-cream-50">ÉTHÉRÉE</span>
+                <p class="text-xs text-sand-200/70 leading-relaxed font-light">
+                    A conscious sanctuary for botanical haircare, mindful dermatology, and quiet luxury.
+                </p>
+                <div class="flex gap-4 text-petal-300">
+                    <a href="#" class="hover:text-cream-50 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-cream-50 transition"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" class="hover:text-cream-50 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-petal-300 mb-4">Quick Sanctuary Navigation</h4>
+                <ul class="space-y-2 text-xs text-sand-200/80">
+                    <li><a href="#home" class="hover:text-petal-200 transition">Home Sanctuary</a></li>
+                    <li><a href="#about" class="hover:text-petal-200 transition">Our Soul & Heritage</a></li>
+                    <li><a href="#services" class="hover:text-petal-200 transition">Complete Ritual Menu</a></li>
+                    <li><a href="#stylists" class="hover:text-petal-200 transition">Master Artists & Team</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-petal-300 mb-4">Client Experience</h4>
+                <ul class="space-y-2 text-xs text-sand-200/80">
+                    <li><a href="#offers" class="hover:text-petal-200 transition">Seasonal Passes</a></li>
+                    <li><a href="#reviews" class="hover:text-petal-200 transition">Read & Write Love Notes</a></li>
+                    <li><button onclick="toggleAiModal()" class="hover:text-petal-200 transition text-left">AI Texture Recommendation</button></li>
+                    <li><a href="#contact" class="hover:text-petal-200 transition">Concierge & Directions</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-petal-300 mb-4">Quiet Gazette</h4>
+                <p class="text-xs text-sand-200/70 font-light mb-3">Join our slow-living newsletter for botanical haircare recipes and seasonal openings.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email address" class="px-3 py-2 text-xs rounded-l-lg bg-softtaupe border border-sand-700 text-cream-50 focus:outline-none w-full">
+                    <button class="px-4 py-2 bg-petal-400 hover:bg-petal-500 text-cream-50 text-xs font-semibold rounded-r-lg transition">Join</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-sand-200/50 gap-4">
+            <p>© 2026 Maison Éthérée Sanctuary. All Rights Reserved. Crafted with care.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:underline">Privacy Philosophy</a>
+                <a href="#" class="hover:underline">Sanctuary Etiquette</a>
+                <a href="#" class="hover:underline">Sustainability Pledge</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==============================================
+         SPECIAL WELCOME MODAL (FIRST IMPRESSION FEATURE)
+    =============================================== -->
+    <div id="welcome-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-darkcharcoal/70 backdrop-blur-sm p-4 hidden">
+        <div class="bg-cream-50 max-w-lg w-full rounded-3xl p-8 border border-petal-200 relative text-center shadow-2xl transform transition-all">
+            <button onclick="closeWelcomeModal()" class="absolute top-5 right-5 text-softtaupe/60 hover:text-darkcharcoal text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 rounded-full bg-petal-100 text-petal-500 mx-auto flex items-center justify-center text-2xl mb-4">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-widest text-petal-500">Namaskara & Welcome</span>
+            <h3 class="font-serif text-3xl text-darkcharcoal mt-1 mb-3">Welcome to Your Safe Space</h3>
+            <p class="text-xs text-softtaupe font-light leading-relaxed mb-6">
+                As a gentle welcome gift for your first sanctuary reservation, enjoy our <strong>Complimentary Botanical Scalp Oil Soak (Worth ₹1,200)</strong> with any booking.
+            </p>
+            <div class="flex gap-3">
+                <button onclick="acceptWelcomeGift()" class="flex-1 py-3 rounded-full bg-petal-400 hover:bg-petal-500 text-cream-50 text-xs font-semibold uppercase tracking-wider transition">
+                    Accept My Welcome Gift
+                </button>
+                <button onclick="closeWelcomeModal()" class="px-5 py-3 rounded-full border border-sand-300 text-darkcharcoal text-xs font-medium transition">
+                    Explore First
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         APPOINTMENT BOOKING MODAL
+    =============================================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-darkcharcoal/70 backdrop-blur-sm p-4 hidden">
+        <div class="bg-cream-50 max-w-lg w-full rounded-3xl p-8 border border-petal-200 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-softtaupe/60 hover:text-darkcharcoal text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-petal-500">Maison Éthérée Concierge</span>
+                <h3 class="font-serif text-3xl text-darkcharcoal">Reserve Your Chair</h3>
+                <p class="text-xs text-softtaupe/70 mt-1">Choose your quiet hour. We will confirm your slot via WhatsApp.</p>
+            </div>
+
+            <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="text-[11px] font-semibold uppercase text-sand-700">Full Name</label>
+                    <input type="text" id="book-name" required placeholder="e.g. Shalini Hegde" class="w-full mt-1 px-4 py-2.5 rounded-xl border border-sand-200 bg-white text-sm focus:outline-none focus:border-petal-400">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-[11px] font-semibold uppercase text-sand-700">Phone / WhatsApp</label>
+                        <input type="tel" id="book-phone" required placeholder="+91 98765 43210" class="w-full mt-1 px-4 py-2.5 rounded-xl border border-sand-200 bg-white text-sm focus:outline-none focus:border-petal-400">
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-semibold uppercase text-sand-700">Preferred Date</label>
+                        <input type="date" id="book-date" required class="w-full mt-1 px-4 py-2.5 rounded-xl border border-sand-200 bg-white text-sm focus:outline-none focus:border-petal-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[11px] font-semibold uppercase text-sand-700">Select Ritual</label>
+                    <select id="book-service" class="w-full mt-1 px-4 py-2.5 rounded-xl border border-sand-200 bg-white text-sm focus:outline-none focus:border-petal-400">
+                        <option value="Sunlit Balayage & Gloss">Sunlit Balayage & Gloss (₹3,400)</option>
+                        <option value="Rose Quartz Lymphatic Facial">Rose Quartz Lymphatic Facial (₹4,200)</option>
+                        <option value="The Sculpted Botanical Cut">The Sculpted Botanical Cut (₹2,100)</option>
+                        <option value="Silk Thread Keratin Therapy">Silk Thread Keratin Therapy (₹5,800)</option>
+                        <option value="Bridal Alchemy Suite">Bridal Alchemy Suite (₹18,500+)</option>
+                        <option value="Damask Rose Pedicure">Damask Rose Pedicure (₹1,900)</option>
+                        <option value="Autumn Blossom Pass">Seasonal Autumn Blossom Pass</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-[11px] font-semibold uppercase text-sand-700">Preferred Artist</label>
+                    <select id="book-stylist" class="w-full mt-1 px-4 py-2.5 rounded-xl border border-sand-200 bg-white text-sm focus:outline-none focus:border-petal-400">
+                        <option value="Any Available Master Couturier">Any Available Master Couturier</option>
+                        <option value="Ananya Kashyap (Color Architect)">Ananya Kashyap (Color Architect)</option>
+                        <option value="Devananda Rao (Precision Master)">Devananda Rao (Precision Master)</option>
+                        <option value="Zara Al-Mansoor (Skin Specialist)">Zara Al-Mansoor (Skin Specialist)</option>
+                    </select>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3.5 rounded-full bg-darkcharcoal hover:bg-petal-500 text-cream-50 text-xs font-bold uppercase tracking-wider transition duration-300">
+                        Confirm Appointment Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         AI BEAUTY CHAT & RECOMMENDATION ENGINE
+         (WITH END CONVERSATION & CLOSE FEATURE)
+    =============================================== -->
+    <!-- Floating AI Bubble Button -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <button onclick="toggleAiModal()" class="p-4 rounded-full bg-darkcharcoal text-cream-50 shadow-2xl flex items-center gap-3 hover:bg-petal-500 transition-all duration-300 transform hover:scale-105 border-2 border-petal-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <i class="fa-solid fa-wand-magic-sparkles text-petal-300 text-lg"></i>
+            <span class="text-xs font-semibold tracking-wider hidden sm:inline">AI Stylist & Consultant</span>
+        </button>
+    </div>
+
+    <!-- AI Modal Dialog -->
+    <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-darkcharcoal/60 backdrop-blur-sm p-4 hidden">
+        <div class="bg-cream-50 max-w-lg w-full rounded-3xl p-6 border border-petal-200 relative shadow-2xl flex flex-col h-[580px]">
+            
+            <!-- AI Header with End Conversation & Close Button -->
+            <div class="flex items-center justify-between pb-4 border-b border-sand-200">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-petal-200 text-petal-500 flex items-center justify-center">
+                        <i class="fa-solid fa-sparkles text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-lg text-darkcharcoal font-medium">Éthérée AI Beauty Concierge</h4>
+                        <p class="text-[10px] text-emerald-600 font-medium">● Online • Tailored Hair & Skin Diagnosis</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <!-- End Chat Button -->
+                    <button onclick="endAiConversation()" title="End this conversation" class="px-2.5 py-1 text-[11px] font-semibold text-rose-600 hover:bg-rose-50 rounded-lg border border-rose-200 transition flex items-center gap-1">
+                        <i class="fa-solid fa-phone-slash text-xs"></i>
+                        <span class="hidden sm:inline">End Chat</span>
+                    </button>
+                    <!-- Close Modal Button -->
+                    <button onclick="toggleAiModal()" class="text-softtaupe hover:text-darkcharcoal text-lg p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Log -->
+            <div id="ai-chat-log" class="flex-1 overflow-y-auto py-4 space-y-3 pr-2 text-xs">
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 rounded-full bg-petal-300 text-white flex items-center justify-center text-[10px] flex-shrink-0">AI</div>
+                    <div class="p-3.5 rounded-2xl bg-petal-100/90 text-darkcharcoal max-w-[82%] leading-relaxed">
+                        Hello lovely soul ✨ I am your personal salon consultant. Tell me about your hair or skin (e.g. <em>"My hair gets frizzy in humidity"</em> or <em>"I need glowing skin for a wedding next week"</em>) and I will diagnose the exact ritual and artist for you.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Prompts Section -->
+            <div id="ai-quick-prompts" class="py-2 flex gap-2 overflow-x-auto text-[11px] no-scrollbar">
+                <button onclick="sendQuickPrompt('I have frizzy damaged hair. What do you recommend?')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-sand-100 hover:bg-petal-200 text-softtaupe border border-sand-200 transition">
+                    💧 Frizzy Hair Solution
+                </button>
+                <button onclick="sendQuickPrompt('I want glowing dewy skin for an upcoming event.')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-sand-100 hover:bg-petal-200 text-softtaupe border border-sand-200 transition">
+                    🌸 Radiant Event Skin
+                </button>
+                <button onclick="sendQuickPrompt('Which artist is best for natural dimensional balayage?')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-sand-100 hover:bg-petal-200 text-softtaupe border border-sand-200 transition">
+                    🎨 Best Balayage Artist
+                </button>
+            </div>
+
+            <!-- End Chat Summary Container (Hidden initially) -->
+            <div id="ai-end-summary" class="hidden py-4 text-center space-y-3 bg-petal-100/60 rounded-2xl p-4 border border-petal-200 my-auto animate-fadeIn">
+                <div class="w-10 h-10 rounded-full bg-petal-300 text-white mx-auto flex items-center justify-center text-base">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h5 class="font-serif text-lg text-darkcharcoal font-medium">Conversation Concluded</h5>
+                <p class="text-xs text-softtaupe/80">Thank you for consulting with Éthérée. We have saved your treatment notes.</p>
+                <div class="flex gap-2 justify-center pt-2">
+                    <button onclick="toggleAiModal(); openBookingModal();" class="px-4 py-2 rounded-full bg-darkcharcoal text-cream-50 text-xs font-semibold uppercase tracking-wider hover:bg-petal-500 transition">
+                        Proceed to Booking
+                    </button>
+                    <button onclick="resetAiChat()" class="px-4 py-2 rounded-full bg-white text-darkcharcoal text-xs font-medium border border-sand-300 hover:bg-petal-100 transition">
+                        Start Fresh Chat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Input Box -->
+            <form id="ai-input-form" onsubmit="handleAiMessage(event)" class="flex gap-2 pt-2 border-t border-sand-200">
+                <input type="text" id="ai-user-input" placeholder="Ask about hair, skin, cuts, or prices..." class="flex-1 px-4 py-2.5 rounded-xl border border-sand-200 bg-white text-xs focus:outline-none focus:border-petal-400">
+                <button type="submit" class="px-5 py-2.5 bg-petal-400 hover:bg-petal-500 text-cream-50 rounded-xl text-xs font-semibold transition">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         JAVASCRIPT LOGIC
+    =============================================== -->
+    <script>
+        // -------------------------------------------------------------
+        // 1. FALLING BLOSSOM & BLURRED HEARTS PARTICLES CANVAS
+        // -------------------------------------------------------------
+        const canvas = document.getElementById('blossom-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        class BlossomParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * -height;
+                this.size = Math.random() * 9 + 6;
+                this.speedY = Math.random() * 0.85 + 0.35;
+                this.speedX = Math.sin(Math.random() * Math.PI) * 0.45;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = (Math.random() - 0.5) * 1.4;
+                this.opacity = Math.random() * 0.4 + 0.2;
+                this.isHeart = Math.random() > 0.65; // 35% heart bokeh, 65% flower petal
+                this.color = Math.random() > 0.5 ? 'rgba(238, 181, 169,' : 'rgba(225, 143, 127,';
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y * 0.005) * 0.65 + this.speedX;
+                this.rotation += this.rotationSpeed;
+
+                if (this.y > height + 20 || this.x > width + 20 || this.x < -20) {
+                    this.reset();
+                    this.y = -10;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.fillStyle = `${this.color} ${this.opacity})`;
+                ctx.shadowBlur = 14;
+                ctx.shadowColor = 'rgba(238, 181, 169, 0.4)';
+
+                if (this.isHeart) {
+                    const s = this.size * 0.6;
+                    ctx.beginPath();
+                    ctx.moveTo(0, s / 4);
+                    ctx.quadraticCurveTo(0, -s / 2, -s / 2, -s / 2);
+                    ctx.quadraticCurveTo(-s, -s / 2, -s, 0);
+                    ctx.quadraticCurveTo(-s, s / 2, 0, s);
+                    ctx.quadraticCurveTo(s, s / 2, s, 0);
+                    ctx.quadraticCurveTo(s, -s / 2, s / 2, -s / 2);
+                    ctx.quadraticCurveTo(0, -s / 2, 0, s / 4);
+                    ctx.fill();
+                } else {
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, this.size, this.size * 0.55, Math.PI / 4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+        }
+
+        const particles = [];
+        const particleCount = window.innerWidth < 768 ? 22 : 45;
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new BlossomParticle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // -------------------------------------------------------------
+        // 2. MOBILE MENU TOGGLE
+        // -------------------------------------------------------------
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // -------------------------------------------------------------
+        // 3. FIRST TIME WELCOME POPUP MODAL
+        // -------------------------------------------------------------
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const welcomeModal = document.getElementById('welcome-modal');
+                welcomeModal.classList.remove('hidden');
+            }, 1400);
+        });
+
+        function closeWelcomeModal() {
+            document.getElementById('welcome-modal').classList.add('hidden');
+        }
+
+        function acceptWelcomeGift() {
+            closeWelcomeModal();
+            openBookingModal('First Visit Botanical Scalp Soak Gift');
+        }
+
+        // -------------------------------------------------------------
+        // 4. BOOKING MODAL LOGIC
+        // -------------------------------------------------------------
+        const bookingModal = document.getElementById('booking-modal');
+
+        function openBookingModal(preselectedService = null) {
+            bookingModal.classList.remove('hidden');
+            if (preselectedService) {
+                const serviceSelect = document.getElementById('book-service');
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value.includes(preselectedService) || preselectedService.includes(serviceSelect.options[i].value)) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+        }
+
+        function selectServiceToBook(serviceName) {
+            openBookingModal(serviceName);
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('book-name').value;
+            const service = document.getElementById('book-service').value;
+            const date = document.getElementById('book-date').value;
+            const stylist = document.getElementById('book-stylist').value;
+
+            alert(`✨ Dhanyavadagalu / Thank you, ${name}!\n\nYour sanctuary reservation request for "${service}" on ${date} with ${stylist} has been received. Our concierge will send you a confirmation message on WhatsApp immediately.`);
+            closeBookingModal();
+        }
+
+        // -------------------------------------------------------------
+        // 5. REVIEW STAR RATING & SUBMISSION SYSTEM
+        // -------------------------------------------------------------
+        let currentRating = 5;
+        function setRating(rating) {
+            currentRating = rating;
+            const stars = document.getElementById('rating-stars').children;
+            for (let i = 0; i < stars.length; i++) {
+                if (i < rating) {
+                    stars[i].className = 'fa-solid fa-star';
+                } else {
+                    stars[i].className = 'fa-regular fa-star';
+                }
+            }
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewer-name').value;
+            const service = document.getElementById('reviewer-service').value;
+            const comment = document.getElementById('reviewer-comment').value;
+
+            const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+
+            let starsHtml = '';
+            for (let i = 0; i < currentRating; i++) starsHtml += '<i class="fa-solid fa-star"></i>';
+
+            const newReviewHtml = `
+                <div class="p-8 rounded-3xl glass-card flex flex-col justify-between border-petal-300 animate-fadeIn">
+                    <div>
+                        <div class="flex text-petal-400 text-xs gap-1 mb-4">
+                            ${starsHtml}
+                        </div>
+                        <p class="text-sm font-serif italic text-darkcharcoal leading-relaxed">
+                            "${comment}"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-sand-200/50 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-petal-200 font-serif font-bold text-petal-500 flex items-center justify-center">${initials}</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-darkcharcoal">${name}</h4>
+                            <p class="text-[10px] text-sand-400">${service} • Just now</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('reviews-container').insertAdjacentHTML('afterbegin', newReviewHtml);
+            document.getElementById('review-form').reset();
+            setRating(5);
+            alert('🌸 Thank you for your heartfelt love note! It has been posted to our sanctuary board.');
+        }
+
+        // -------------------------------------------------------------
+        // 6. CONVERSATIONAL AI + END CHAT & CLOSE FEATURE
+        // -------------------------------------------------------------
+        const aiModal = document.getElementById('ai-modal');
+        const aiChatLog = document.getElementById('ai-chat-log');
+        const aiQuickPrompts = document.getElementById('ai-quick-prompts');
+        const aiEndSummary = document.getElementById('ai-end-summary');
+        const aiInputForm = document.getElementById('ai-input-form');
+
+        function toggleAiModal() {
+            aiModal.classList.toggle('hidden');
+        }
+
+        function sendQuickPrompt(text) {
+            document.getElementById('ai-user-input').value = text;
+            handleAiMessage(new Event('submit'));
+        }
+
+        function endAiConversation() {
+            // Hide active elements and show closing summary
+            aiChatLog.classList.add('hidden');
+            aiQuickPrompts.classList.add('hidden');
+            aiInputForm.classList.add('hidden');
+            aiEndSummary.classList.remove('hidden');
+        }
+
+        function resetAiChat() {
+            // Restore chat view to clean state
+            aiChatLog.innerHTML = `
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 rounded-full bg-petal-300 text-white flex items-center justify-center text-[10px] flex-shrink-0">AI</div>
+                    <div class="p-3.5 rounded-2xl bg-petal-100/90 text-darkcharcoal max-w-[82%] leading-relaxed">
+                        Hello lovely soul ✨ I am your personal salon consultant. Tell me about your hair or skin (e.g. <em>"My hair gets frizzy in humidity"</em> or <em>"I need glowing skin for a wedding next week"</em>) and I will diagnose the exact ritual and artist for you.
+                    </div>
+                </div>
+            `;
+            aiEndSummary.classList.add('hidden');
+            aiChatLog.classList.remove('hidden');
+            aiQuickPrompts.classList.remove('hidden');
+            aiInputForm.classList.remove('hidden');
+        }
+
+        function handleAiMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('ai-user-input');
+            const userText = input.value.trim();
+            if (!userText) return;
+
+            // Check if user is typing goodbye/end
+            const lowerCheck = userText.toLowerCase();
+            if (lowerCheck.includes('bye') || lowerCheck.includes('exit') || lowerCheck.includes('end chat') || lowerCheck.includes('thank you that is all') || lowerCheck.includes('tq')) {
+                input.value = '';
+                endAiConversation();
+                return;
+            }
+
+            // Append User Message
+            aiChatLog.innerHTML += `
+                <div class="flex justify-end animate-fadeIn">
+                    <div class="p-3 rounded-2xl bg-darkcharcoal text-cream-50 max-w-[80%] leading-relaxed">
+                        ${userText}
+                    </div>
+                </div>
+            `;
+
+            input.value = '';
+            aiChatLog.scrollTop = aiChatLog.scrollHeight;
+
+            // AI Diagnostic Logic
+            setTimeout(() => {
+                let aiResponse = "";
+                const lower = userText.toLowerCase();
+
+                if (lower.includes('frizz') || lower.includes('dry') || lower.includes('damaged') || lower.includes('keratin')) {
+                    aiResponse = `Based on your hair texture, I highly recommend our <strong>Silk Thread Keratin Therapy (₹5,800)</strong>. It is completely non-toxic and seals moisture without taking away your natural bounce. Would you like to reserve a session with <em>Devananda Rao</em>?`;
+                } else if (lower.includes('glow') || lower.includes('facial') || lower.includes('skin') || lower.includes('dull') || lower.includes('event')) {
+                    aiResponse = `For high dewiness and camera-ready glass skin, our <strong>Rose Quartz Lymphatic Facial (₹4,200)</strong> by <em>Zara Al-Mansoor</em> is the best choice. It relieves fluid tension and infuses damask rose botanicals.`;
+                } else if (lower.includes('color') || lower.includes('balayage') || lower.includes('highlight') || lower.includes('artist')) {
+                    aiResponse = `Our Creative Director <strong>Ananya Kashyap</strong> specializes in <em>Sunlit French Balayage (₹3,400)</em>. She hand-paints each layer so your hair grows out seamlessly with zero harsh lines.`;
+                } else if (lower.includes('price') || lower.includes('cost') || lower.includes('rate')) {
+                    aiResponse = `Our rituals start from ₹1,900 for Pedicures, ₹2,100 for Sculpted Haircuts, ₹3,400 for Balayage, and ₹4,200 for our Signature Lymphatic Facial. All include herbal aromatherapies and head massages.`;
+                } else {
+                    aiResponse = `That sounds wonderful! For this, I suggest scheduling a 15-minute <strong>Custom Sanctuary Consultation</strong> with our master artists to tailor the botanicals specifically to your hair porosity and skin undertone. Shall I open the booking window?`;
+                }
+
+                aiChatLog.innerHTML += `
+                    <div class="flex gap-2 animate-fadeIn">
+                        <div class="w-6 h-6 rounded-full bg-petal-300 text-white flex items-center justify-center text-[10px] flex-shrink-0">AI</div>
+                        <div class="p-3.5 rounded-2xl bg-petal-100/90 text-darkcharcoal max-w-[82%] leading-relaxed shadow-sm">
+                            ${aiResponse}
+                            <div class="mt-2.5 pt-2 border-t border-petal-200/60 flex items-center justify-between">
+                                <button onclick="toggleAiModal(); openBookingModal();" class="text-[10px] font-bold text-petal-500 uppercase tracking-wider underline">
+                                    → Reserve this ritual now
+                                </button>
+                                <button onclick="endAiConversation()" class="text-[10px] font-semibold text-softtaupe/70 hover:text-rose-500 transition">
+                                    Done / End
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                aiChatLog.scrollTop = aiChatLog.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
